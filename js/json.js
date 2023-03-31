@@ -1,5 +1,5 @@
 
-const url = 'https://sergioprg.github.io/ArgentinaPrograma-FrontEnd/json/registros.json';
+const url = 'https://sergioprg.github.io/ArgentinaPrograma/json/registros.json';
 //const tituloheaderSpan = document.getElementById('tituloheader');
 const nombreSpan = document.getElementById('nombre');
 const apellidoSpan = document.getElementById('apellido');
