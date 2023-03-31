@@ -1,0 +1,713 @@
+<!-- ACLARACIONES PARA EL PROYECTO:
+    1) Comentarios: Los comentarios se utilizan para aclarar/detallar funcionalidades complejas del codigo, siendo esto de gran ayuda para los 
+    diferentes desarrolladores/lectores del codigo que puedan estar participando de la construccion y/o chequeo del mismo.
+    Para el caso de este proyecto se aclaran ademas cuestiones teóricas de html para que la/el profesora/or pueda validar interpretaciones 
+    personales de HTML5/CSS/JS.-->
+
+<!DOCTYPE html> <!-- Definicion del tipo de documento. <!DOCTYPE html> = HTML5-->
+
+<html lang="es">
+<!-- Definicion del idioma por defecto de la página. 
+                            En el caso que para un texto determinado no deba permitirse traducir todo o una parte del mismo se deberá indicar dentro de la 
+                            etiqueta "translate=no". Ej <p> Esto es una prueba de texto <span translate=no> NO TRADUCIBLE </span> </p>
+                            Translate=no debería usarse por ejemplo para nombres/marcas en un idioma en particular o texto de código de programacion ejemplo 
+                            que no tenga o deba tener una traducción, ya que generaría un error de interpretación en la expresión-->
+
+<head> <!-- -->
+
+    <meta charset="UTF-8"> <!-- Esta eqtiqueta se usa para especificar la codificación a utilizar en nuestra página web. UTF-8 actualmente
+                                            es la mas usada y soportada. ASCII= 7 bits de caracteres / ISO-8859-1= 8bits de caracteres / UTF8= 32 bits
+                                            de caracteres. ISO-8859-1 y UTF-8 son compatibles 100% con ASCII, pero UTF-8 NO es compatible con ISO-8859-1 
+                                            Segun los caracteres que deseamos usar se puede elegir el tipo de codificacion, aunque en la actualidad conviene
+                                            utilizar UTF-8, ya que es la mas abarcativa de las tres-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- Si necesitamos soportar los exploradores web de Microsoft IE 9 o IE 8 debemos 
+                                                            usar esta etiqueta, caso contrario no será necesaria. El modo Edge le dice a Internet Explorer que 
+                                                            muestre el contenido en el modo más alto disponible.
+                                                            Ej: Con Internet Explorer 9, esto equivale al modo IE9.
+                                                            El modo IE8 es compatible con muchos estándares establecidos, incluyendo la especificación de Hojas 
+                                                            de Estilo en Cascada de Nivel 2.1 del W3C y la API de los selectores del W3C; también proporciona un
+                                                            soporte limitado para la Especificación de Hojas de Estilo en Cascada de Nivel 3 del W3C (Borrador 
+                                                            de Trabajo) y otros estándares emergentes.
+                                                            También existe chrome=1 que puedes usar o utilizar junto con una de las opciones anteriores, Ejemplo:
+                                                            <meta http-equiv=»X-UA-Compatible» content=»IE=Edge,chrome=1″>
+                                                            El frame de Chrome de Google es un complemento de código abierto para el navegador.
+                                                            Los usuarios que tengan instalado el plug-in tienen acceso a las tecnologías web abiertas de Google 
+                                                            Chrome y al rápido motor de JavaScript cuando abren páginas en el navegador.-->
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"> <!-- La declaración viewport nos permite definir los parámetros de 
+                                                            visualización de un página web en los diferentes dispositivos. Consiste en una metaetiqueta mediante
+                                                            la que se establece si se puede hacer zoom en una página, el zoom inicial o la anchura de la pantalla 
+                                                            del dispositivo.
+                                                            Cuando trabajamos con una web responsive es necesario definir un viewport adecuado, de lo contrario es 
+                                                            muy probable que la página no lea correctamente los media queries y que se vea en formato muy reducido, 
+                                                            siendo necesario hacer zoom para ver el contenido. -->
+
+    <title>Currículum Vitae - Argentina Programa</title>
+
+
+    <link rel="shortcut icon" href="img/iconos/iconoweb.png">
+    <!-- Icono de la pagina web que aparecerá en la solapa de página del explorador. El mismo convendría que sea .PNG en exploradores mas nuevos para manejar
+                transparencias y de un tamaño/peso mínimo, ya que todo lo que se carga en la web afecta al rendimiento/tiempo de carga.
+                En el caso de versiones de exploradores antiguos solo son admisibles las extensiones .ICO, por lo que en caso de querer mayor compatibilidad se deberá 
+                utilizar exclusivamente extensiones .ICO -->
+
+    <!-- LINK AL CDN DEL CSS DE BOOSTRAP (FRAMEWORK) 5.3.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <!-- LINK AL CDN DE FONTAWESOME 6.2.0 (ICONOS) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- LINK A GOOGLE FONTS (TIPOGRAFIAS) para uso de la fuente Oxygen Light 300 "En el CSS se debe usar: "font-family: 'Oxygen', sans-serif;"-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Mulish:ital,wght@1,600&family=Nova+Slim&family=Roboto:ital,wght@0,300;0,500;0,700;1,300;1,400;1,500&family=RocknRoll+One&family=Syne+Mono&display=swap"
+        rel="stylesheet">
+
+    <!-- LINK HOJA DE ESTILO PERSONALIZADA -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos_skill.css">
+    <link rel="stylesheet" href="css/formulario.css">
+</head>
+
+<body>
+
+    <header id="anclanav" class="seccion_header_nav sticky-top">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
+            <!-- Logo de la pagina puesto en el menú -->
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="#">
+                    <h1 id="logonombre">Ernesto Guevara</h1>
+                </a>
+
+                <img src="img/logo/logoargprg.png" alt="Logo Argentina Programa 4.0" width="100px">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toogle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav px-1 mx-1 navbar-right">
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#anclaperfil"><i class="fas fa-user-circle"></i> PERFIL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#anclaeducacion"><i class="fas fa-file-alt"></i> EDUCACION</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#anclalaboral"><i class="fas fa-briefcase"></i> LABORAL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#anclaskills"><i class="fas fa-award"></i> SKILLS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#anclaportfolio"><i class="fas fa-briefcase"></i> PORTFOLIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#anclacontacto"><i class="fas fa-at"></i> CONTACTO</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main class="contenedor_main container-fluid">
+        <hr>
+        <!--FILA PRINCIPAL #1 -->
+        <div class="row">
+
+            <!--COLUMNA #1 (IZQUIERDA) DE FILA PRINCIPAL #1 -->
+            <div class="col columnaizquierda order-2 col-12 order-sm-2 col-sm-12 order-md-1 col-md-8 order-lg-1 col-lg-8">
+
+                <div class="row">
+
+                    <section id="anclaperfil" class="clase_perfil">
+                        <div>
+                            <h2 class="titulo_secciones">Perfil Profesional</h2>
+                            <hr>
+                            <p>Profesional de sistemas con experiencia en seguridad informática y
+                                gestión de riesgos. Amplio conocimiento en el diseño, implementación y mantenimiento de
+                                sistemas de seguridad informática, así como en la identificación y mitigación de
+                                vulnerabilidades y amenazas. Capacidad para desarrollar y aplicar políticas de seguridad
+                                informática en consonancia con los estándares y regulaciones internacionales. Habilidad
+                                para trabajar en equipo, liderando y motivando al mismo, y estableciendo alianzas
+                                estratégicas con otras áreas para garantizar la integridad, confidencialidad y
+                                disponibilidad de los sistemas de información. Orientado a resultados y con habilidades
+                                de resolución de problemas.
+                            </p>
+                            <audio controls>
+                                <source src="audio/audiopresentacion.mp3" type="audio/mpeg">
+                                Your browser does not support the audio tag.
+                            </audio>
+                            <br>
+                        </div>
+                    </section>
+
+                </div>
+
+                <div class="row">
+
+                    <section id="anclaeducacion" class="clase_educacion container-fluid">
+                        <div class="clase_contenedorseccioneducacion">
+                            <h2 class="titulo_secciones">Educación Formal</h2>
+                            <hr>
+                            <div class="row clase_contenedordatos1educacion">
+                                <div class="col clase_logoseccioneseducacion col-1"> <img src="img/logo/usal.png"
+                                        alt="Facultad del Salvador"></div>
+                                <div class="col col-8">
+                                    <div class="clase_datossecciones">
+                                        <h4>Licenciatura en Sistemas de Información</h4>
+                                        <h5><i>Universidad del Salvador</i></h5>
+                                    </div>
+                                </div>
+                                <div class="col clase_datossecciones col-3">
+                                    <p>Desde: <span>1987</span> - Hasta: <span>1993</span></p>
+                                </div>
+                            </div>
+                            <div class="row clase_contenedordatos2educacion">
+                                <div class="col clase_logoseccioneseducacion col-1"> <img src="img/logo/donato.png"
+                                        alt="Instituto Donato"></div>
+                                <div class="col col-8">
+                                    <div class="clase_datossecciones">
+                                        <h4>Técnico Electrónico con especialización en Computación</h4>
+                                        <h5><i>Colegio San Antonio Donato</i></h5>
+                                    </div>
+                                </div>
+                                <div class="col clase_datossecciones col-3">
+                                    <p>Desde: <span>1980</span> - Hasta: <span>1986</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+                <div class="row">
+
+                    <section id="anclalaboral" class="clase_laboral">
+                        <div class="clase_contenedorseccionlaboral">
+                            <h2 class="titulo_secciones">Experiencia Laboral</h2>
+                            <hr>
+                            <div class="row">
+                                <div class="col clase_logoseccioneslaboral col-1"> <img src="img/logo/nestle.png"
+                                        alt="Logo Empresa Nestle"></div>
+                                <div class="col col-8">
+                                    <div class="clase_datossecciones">
+                                        <h4>Director de Seguridad Informática</h4>
+                                        <h5><i>Nestlé Argentina S.A.</i></h5>
+                                        <h6><i>Buenos Aires - Argentina</i></h6>
+                                        <hr>
+                                        <p>Como Director de Seguridad Informática, colaboro con otros departamentos para
+                                            cumplir las políticas de seguridad, superviso la monitorización de sistemas
+                                            para detectar amenazas y mantengo relaciones con proveedores y
+                                            organizaciones relevantes. Mi papel es crucial para proteger los sistemas de
+                                            información y garantizar la confianza de nuestros clientes y empleados en la
+                                            protección de sus datos.</p>
+                                    </div>
+                                </div>
+                                <div class="col clase_datossecciones col-3">
+                                    <p>Desde: <span>2015</span> - Hasta: <span>HOY</span></p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col clase_logoseccioneslaboral col-1">
+                                    <img src="img/logo/andreani.png" alt="Logo Empresa Andreani">
+                                </div>
+                                <div class="col col-8">
+                                    <div class="clase_datossecciones">
+                                        <h4>Gerente de Sistemas</h4>
+                                        <h5><i>Andreani S.A.</i></h5>
+                                        <h6><i>Buenos Aires - Argentina</i></h6>
+                                        <hr>
+                                        <p>Como Gerente de Sistemas, me aseguré de que los sistemas de información
+                                            fueran efectivos y eficientes. Supervisé el equipo de trabajo, evalué y
+                                            seleccioné
+                                            tecnologías, implementé políticas de seguridad informática, coordiné
+                                            proyectos y mantuve relaciones con proveedores. Mi objetivo fue garantizar
+                                            una infraestructura tecnológica sólida y eficiente para ofrecer el mejor
+                                            servicio posible a nuestros clientes.</p>
+                                    </div>
+                                </div>
+                                <div class="col clase_datossecciones col-3">
+                                    <p>Desde: <span>1994</span> - Hasta: <span>2015</span></p>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+
+            <!--COLUMNA #2 (DERECHA) DE FILA PRINCIPAL #1 -->
+            <div class="col columnaderecha order-1 col-12 order-sm-1 col-sm-12 order-md-2 col-md-4 order-lg-2 col-lg-4">
+
+
+                <section id="anclapersonal">
+
+                    <div class="row">
+
+                        <div class="col col-12">
+
+                            <div class="contenedor_tarjeta">
+
+                                <div class="identificacion">
+
+                                    <div class="clase_imagenpersona">
+                                        <img src="img/persona/ernestoguevara.png"
+                                            alt="Imagen de perfil de Ernesto Guevara">
+                                    </div>
+
+                                    <div class="clase_titularpersona">
+                                        <h3>ERNESTO GUEVARA</h3>
+                                        <h4>Experto en Seguridad Informática</h4>
+                                    </div>
+
+                                </div>
+
+                                <div class="detalleidentificacion">
+
+                                    <div class="row">
+                                        <p><b>Nombre: </b><span id="nombre"></span></p>
+                                    </div>
+
+                                    <div class="row">
+                                        <p><b>Apellido: </b><span id="apellido"></span></p>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <p><b>Título: </b><span id="titulo"></span></p>
+                                    </div>
+
+                                    <div class="row">
+                                        <p><b>Documento de Identidad: </b><span id="dni"></span></p>
+                                    </div>
+
+                                    <div class="row">
+                                        <p><b>Género: </b><span id="genero"></span></p>
+                                    </div>
+
+                                    <div class="row">
+                                        <p><b>Fecha de Nacimiento: </b><span id="fechanacimiento"></span></p>
+                                    </div>
+
+                                    <div class="row">
+                                        <p><b>Edad: </b><span id="edad"></span> Años</p>
+                                    </div>
+
+                                    <div class="row">
+                                        <p><b>Nacionalidad: </b><span id="nacionalidad"></span></p>
+                                    </div>
+
+                                </div>
+
+                                <div class="redesidentificacion">
+
+                                    <div class="row">
+                                        <h2 class="titulo_secciones">Contacto</h2>
+                                        <hr>
+                                    </div>
+
+                                    <div class="row">
+                                        <p><i class="fas fa-envelope mr-3"></i> <b>Correo electrónico: </b></p>
+                                        <p><a href="mailto:eguevara@argentina.gob.ar"><span id="email"></span></a></p>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <p><i class="fas fa-phone mr-3"></i> <b>Teléfono: </b></p>
+                                        <span id="telefono"></span>
+                                        </p>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <p><i class="fas fa-home mr-3"></i> <b>Dirección: </b></p>
+                                        <p><span id="direccion"></span><span> , </span> <span id="codigopostal"></span>
+                                            <span> , </span><span id="localidad"></span>
+                                        </p>
+
+                                    </div>
+
+                                    <div class="redes">
+                                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                        <a href="#"><i class="fa-solid fa-rss"></i></a>
+                                        <a href="#"><i class="fa-brands fa-skype"></i></a>
+                                        <br>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+        <!--FILA PRINCIPAL #2 -->
+        <div class="row">
+
+            <!--COLUMNA #1 (IZQUIERDA) DE FILA PRINCIPAL #2 -->
+            <div
+                class="col columnaizquierda order-1 col-12 order-sm-1 col-sm-12 order-md-1 col-md-8 order-lg-1 col-lg-8">
+
+                <div class="row">
+
+                    <section id="anclaskills">
+
+                        <h2 class="titulo_secciones">Skills</h2>
+                        <hr>
+                        <div class="row fila_contenedor_skills">
+
+                            <div class="col config_card_skill col-lg-3 col-md-6 col-sm-12 col-12">
+
+                                <div class="contenedor_skills">
+
+                                    <h6>Programación</h6>
+
+                                    <div class="skillbar" data-percent="90%">
+                                        <div class="skillbar-title">Visual Basic .NET</div>
+                                        <div class="skill-bar-percent">90%</div>
+                                        <div class="skillbar-bar" style="width: 90%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="70%">
+                                        <div class="skillbar-title">HTML5/CSS3</div>
+                                        <div class="skill-bar-percent">70%</div>
+                                        <div class="skillbar-bar" style="width: 70%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="50%">
+                                        <div class="skillbar-title">PHP</div>
+                                        <div class="skill-bar-percent">50%</div>
+                                        <div class="skillbar-bar" style="width: 50%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="30%">
+                                        <div class="skillbar-title">PYTHON</div>
+                                        <div class="skill-bar-percent">30%</div>
+                                        <div class="skillbar-bar" style="width: 30%;"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col config_card_skill col-lg-3 col-md-6 col-sm-12 col-12">
+
+                                <div class="contenedor_skills">
+
+                                    <h6>Sistemas Operativos</h6>
+
+                                    <div class="skillbar" data-percent="100%">
+                                        <div class="skillbar-title">Windows Server</div>
+                                        <div class="skill-bar-percent">100%</div>
+                                        <div class="skillbar-bar" style="width: 100%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="60%">
+                                        <div class="skillbar-title">CentoOS Server</div>
+                                        <div class="skill-bar-percent">60%</div>
+                                        <div class="skillbar-bar" style="width: 60%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="50%">
+                                        <div class="skillbar-title">Ubuntu Server</div>
+                                        <div class="skill-bar-percent">50%</div>
+                                        <div class="skillbar-bar" style="width: 50%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="10%">
+                                        <div class="skillbar-title">Suse Server</div>
+                                        <div class="skill-bar-percent">10%</div>
+                                        <div class="skillbar-bar" style="width: 10%;"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col config_card_skill col-lg-3 col-md-6 col-sm-12 col-12">
+
+                                <div class="contenedor_skills">
+
+                                    <h6>Virtualización</h6>
+
+                                    <div class="skillbar" data-percent="100%">
+                                        <div class="skillbar-title">VmWare VSphere</div>
+                                        <div class="skill-bar-percent">100%</div>
+                                        <div class="skillbar-bar" style="width: 100%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="80%">
+                                        <div class="skillbar-title">Amazon AWS</div>
+                                        <div class="skill-bar-percent">80%</div>
+                                        <div class="skillbar-bar" style="width: 80%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="80%">
+                                        <div class="skillbar-title">Microsoft Azure</div>
+                                        <div class="skill-bar-percent">80%</div>
+                                        <div class="skillbar-bar" style="width: 80%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="70%">
+                                        <div class="skillbar-title">Microsoft Hiper-V</div>
+                                        <div class="skill-bar-percent">70%</div>
+                                        <div class="skillbar-bar" style="width: 70%;"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col config_card_skill col-lg-3 col-md-6 col-sm-12 col-12">
+
+                                <div class="contenedor_skills">
+
+                                    <h6>Seguridad</h6>
+
+                                    <div class="skillbar" data-percent="100%">
+                                        <div class="skillbar-title">Orca Security</div>
+                                        <div class="skill-bar-percent">100%</div>
+                                        <div class="skillbar-bar" style="width: 100%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="95%">
+                                        <div class="skillbar-title">Solarwinds Sec</div>
+                                        <div class="skill-bar-percent">95%</div>
+                                        <div class="skillbar-bar" style="width: 95%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="90%">
+                                        <div class="skillbar-title">Bit Defender TS</div>
+                                        <div class="skill-bar-percent">90%</div>
+                                        <div class="skillbar-bar" style="width: 90%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="90%">
+                                        <div class="skillbar-title">Netwrix Auditor</div>
+                                        <div class="skill-bar-percent">90%</div>
+                                        <div class="skillbar-bar" style="width: 90%;"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </section>
+
+                </div>
+
+                <div class="row">
+
+                    <section id="anclaportfolio" class="container text-center my-3">
+
+                        <h2 class="titulo_secciones">Porfolio</h2>
+                        <hr>
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-3">
+
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="img/portfolio/html_portfolio.png" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Diseño Web HTML para empresa YPF.</h5>
+                                        <p class="card-text">Realicé el diseño web utilizando HTML para la empresa
+                                            Y.P.F., incorporando los elementos necesarios para una experiencia de
+                                            usuario intuitiva y satisfactoria. Se tuvo en cuenta la imagen de la empresa
+                                            y su presencia en el mercado, logrando una página moderna y atractiva.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="#" class="btn btn-primary">Conozca mi proyecto</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="img/portfolio/css_portfolio.png" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Maquetado CSS para web de Argentina Programa.</h5>
+                                        <p class="card-text">Para el sitio web de Argentina Programa, me encargué del
+                                            maquetado CSS, logrando un diseño elegante y funcional. Se trabajó en la
+                                            optimización de la visualización de los contenidos en diferentes
+                                            dispositivos, así como en la accesibilidad del sitio para una mayor
+                                            inclusión de los usuarios.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="#" class="btn btn-primary">Conozca mi proyecto</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                </div>
+
+            </div>
+
+            <!--COLUMNA #2 (DERECHA) DE FILA PRINCIPAL #2 -->
+
+            <div class="col columnaderecha order-2 col-12 order-sm-2 col-sm-12 order-md-2 col-md-4 order-lg-2 col-lg-4">
+
+                <div class="row">
+
+                    <section id="anclaskillsidioma">
+
+                        <h2 class="titulo_secciones">Idiomas</h2>
+                        <hr>
+                        <div class="row fila_contenedor_idiomas">
+
+                            <div class="col config_card_idioma">
+
+                                <div class="contenedor_skills">
+
+                                    <h6>Idiomas de uso cotidiano</h6>
+
+                                    <div class="skillbar" data-percent="100%">
+                                        <div class="skillbar-title">Español</div>
+                                        <div class="skill-bar-percent">100%</div>
+                                        <div class="skillbar-bar" style="width: 100%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="100%">
+                                        <div class="skillbar-title">Inglés</div>
+                                        <div class="skill-bar-percent">100%</div>
+                                        <div class="skillbar-bar" style="width: 100%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="80%">
+                                        <div class="skillbar-title">Portugués</div>
+                                        <div class="skill-bar-percent">80%</div>
+                                        <div class="skillbar-bar" style="width: 80%;"></div>
+                                    </div>
+
+                                    <div class="skillbar" data-percent="50%">
+                                        <div class="skillbar-title">Francés</div>
+                                        <div class="skill-bar-percent">50%</div>
+                                        <div class="skillbar-bar" style="width: 50%;"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <section>
+
+                </div>
+
+
+                <section id="anclacontacto">
+
+                    <h2 class="titulo_secciones">Escríbeme Aquí</h2>
+                    <hr>
+
+                    <div class="contenedorformulario">
+
+                        <form id="contact-form">
+
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" name="name" required>
+
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <label for="message">Mensaje:</label>
+                            <textarea id="message" name="message" required rows="11"></textarea>
+
+                            <button type="submit">Enviar</button>
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <!-- Section: Copyright -->
+        <section class="p-3 pt-0 bg-black text-white">
+            <hr>
+            <div class="row d-flex align-items-center">
+                <!-- Grid column -->
+                <div class="col-md-7 col-lg-8 text-center text-md-start">
+                    <!-- Copyright -->
+                    <div class="p-3">
+                        Argentina Programa - Ticmas © 2023 Copyright.
+                    </div>
+                    <!-- Copyright -->
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+                    <!-- Facebook -->
+                    <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i
+                            class="fab fa-facebook-f"></i></a>
+
+                    <!-- Twitter -->
+                    <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i
+                            class="fab fa-twitter"></i></a>
+
+                    <!-- Google -->
+                    <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i
+                            class="fab fa-google"></i></a>
+
+                    <!-- Instagram -->
+                    <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+                <!-- Grid column -->
+            </div>
+        </section>
+        <!-- Section: Copyright -->
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+        integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/js/jquery-1.8.3.min.js"></script>
+
+    <script src="js/json.js"></script>
+    <script src="js/calculoedad.js"></script>
+    <script src="js/formulario.js"></script>
+
+</body>
+
+</html>
