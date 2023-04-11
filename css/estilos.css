@@ -144,8 +144,10 @@ hr {
 }
 
 .clase_logoseccioneseducacion {
-    align-content: center;
+    padding-top: 5px;
+    width: auto;
     text-align: center;
+    box-sizing: content-box;
 }
 
 .clase_logoseccioneseducacion img {
@@ -155,6 +157,9 @@ hr {
 
 .clase_logoseccioneslaboral {
     padding-top: 5px;
+    width: auto;
+    align-items: center;
+    box-sizing: content-box;
 }
 
 .clase_logoseccioneslaboral img {
@@ -190,11 +195,11 @@ h6 {
     text-align: center;
     justify-content: center;
 
-    display: flex;
+    /*display: flex;*/
     /* habilita atributos adicionales para el manejo de textos */
-    display: block
+    /*display: block;*/
         /* obliga a poner un contenedor uno debajo de otro */
-    ;
+    
 }
 
 .redes {
@@ -268,19 +273,31 @@ h6 {
 /*MEDIA QUERY*/
 /*************/
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .col .config_card_skill {
         width: 460px;
     }
 
-    .columnaizquierda {
+}
+@media screen and (max-width: 991px) {
+.columnaizquierda {
 
-        border-right: solid turquoise 0px;
-    }
+    border-right: solid turquoise 0px;
+}
 }
 
-@media (min-width: 1098px) and (max-width:1470px) {
+@media screen and (min-width: 1098px) and (max-width:1470px) {
     .col .config_card_skill {
         width: 320px;
     }
+}
+
+@media screen and (max-width:1190px) 
+{
+.clase_logoseccioneseducacion {
+    display: none;
+}
+.clase_logoseccioneslaboral {
+    display: none;
+}
 }
